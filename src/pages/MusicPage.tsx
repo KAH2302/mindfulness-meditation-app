@@ -2,31 +2,35 @@ import { useState } from 'react'
 import { NatureBackground } from '../components/NatureBackground'
 import { musicTracks } from '../data/music'
 import { getTimeOfDay } from '../data/timeOfDay'
+import { ko } from '../i18n/ko'
 import type { MusicTrack } from '../types'
 
 export function MusicPage() {
   const timeOfDay = getTimeOfDay()
-  const [active, setActive] = useState<MusicTrack>(musicTracks[0])
+  const playable = musicTracks.filter((t) => t.youtubeId)
+  const [active, setActive] = useState<MusicTrack>(playable[0])
 
   return (
     <section className="relative min-h-[100dvh] overflow-hidden">
-      <NatureBackground image={timeOfDay.image} />
+      <NatureBackground image={timeOfDay.image} video={timeOfDay.video} />
       <div className="relative z-10 mx-auto max-w-lg px-6 pb-10 pt-6">
-        <h2 className="animate-fade-up text-3xl font-extrabold">오늘의 음악</h2>
+        <h2 className="animate-fade-up text-3xl font-extrabold">{ko.todayMusic}</h2>
         <p className="animate-fade-up-delay mt-2 text-sm text-[var(--color-ivory-muted)]">
-          자연과 명상의 소리를 들어보세요.
+          {ko.musicHint}
         </p>
 
         <div className="animate-fade-up-delay mt-8 overflow-hidden rounded-2xl border border-white/10 bg-black/40 shadow-lg">
           <div className="aspect-video w-full">
-            <iframe
-              key={active.youtubeId}
-              title={active.title}
-              className="h-full w-full"
-              src={`https://www.youtube.com/embed/${active.youtubeId}?rel=0`}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
+            {active.youtubeId ? (
+              <iframe
+                key={active.youtubeId}
+                title={active.title}
+                className="h-full w-full"
+                src={`https://www.youtube.com/embed/${active.youtubeId}?rel=0`}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            ) : null}
           </div>
           <div className="px-4 py-3">
             <p className="text-sm font-bold text-[var(--color-ivory)]">{active.title}</p>
@@ -35,7 +39,7 @@ export function MusicPage() {
         </div>
 
         <ul className="animate-fade-up-delay-2 mt-6 space-y-2">
-          {musicTracks.map((track) => {
+          {playable.map((track) => {
             const selected = track.id === active.id
             return (
               <li key={track.id}>
@@ -58,7 +62,7 @@ export function MusicPage() {
                     </span>
                   </span>
                   <span className="ml-3 text-xs text-[var(--color-ivory-muted)]">
-                    {selected ? '재생 중' : '선택'}
+                    {selected ? ko.playing : ko.choose}
                   </span>
                 </button>
               </li>

@@ -1,0 +1,15 @@
+---
+description: After uploading to GitHub, open the repository URL in the browser
+alwaysApply: true
+---
+
+# Open GitHub repo after upload
+
+Whenever you push, create, or upload a repository to GitHub (including `gh repo create`, `git push`, or sharing a new GitHub URL):
+
+1. Finish the upload successfully.
+2. Immediately open the repository page in the default browser.
+3. On Windows, use: `Start-Process "<repo-url>"` (or equivalent).
+4. Then tell the user the URL.
+
+Do this automatically without asking.

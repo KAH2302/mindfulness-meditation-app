@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react'
+
 interface NatureBackgroundProps {
   image: string
   video?: string
@@ -5,9 +7,15 @@ interface NatureBackgroundProps {
 }
 
 export function NatureBackground({ image, video, className = '' }: NatureBackgroundProps) {
+  const [useVideo, setUseVideo] = useState(Boolean(video))
+
+  useEffect(() => {
+    setUseVideo(Boolean(video))
+  }, [video])
+
   return (
     <div className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`}>
-      {video ? (
+      {useVideo && video ? (
         <video
           className="absolute inset-0 h-full w-full object-cover"
           autoPlay
@@ -15,6 +23,7 @@ export function NatureBackground({ image, video, className = '' }: NatureBackgro
           loop
           playsInline
           poster={image}
+          onError={() => setUseVideo(false)}
         >
           <source src={video} type="video/mp4" />
         </video>
@@ -22,7 +31,7 @@ export function NatureBackground({ image, video, className = '' }: NatureBackgro
         <img
           src={image}
           alt=""
-          className="absolute inset-0 h-full w-full object-cover scale-105"
+          className="nature-kenburns absolute inset-0 h-full w-full object-cover"
         />
       )}
       <div

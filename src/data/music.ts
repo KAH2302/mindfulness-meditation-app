@@ -1,7 +1,13 @@
 import type { MusicTrack } from '../types'
 
-/** YouTube IDs from 소스.md — embed only, no rehosting. */
+/** Distinct YouTube embeds — do not rehost. */
 export const musicTracks: MusicTrack[] = [
+  {
+    id: 'none',
+    title: '음악 없음',
+    description: '소리 없이 조용히 명상합니다.',
+    category: 'none',
+  },
   {
     id: 'meditation-music',
     title: '명상 음악',
@@ -11,24 +17,24 @@ export const musicTracks: MusicTrack[] = [
   },
   {
     id: 'rain',
-    title: '빗소리 · 자연음',
-    description: '자연의 소리와 함께 쉬어가세요.',
+    title: '빗소리',
+    description: '빗소리와 함께 긴장을 풀어보세요.',
     category: 'rain',
-    youtubeId: 'QBtqwXNrCTU',
+    youtubeId: 'mPZkdNFkN9I',
   },
   {
     id: 'waves',
     title: '파도소리',
-    description: '바다의 파도 소리로 긴장을 풀어보세요.',
+    description: '바다의 파도 소리로 마음을 쉬게 하세요.',
     category: 'waves',
-    youtubeId: 'QBtqwXNrCTU',
+    youtubeId: 'V1bFr2SWP1I',
   },
   {
     id: 'forest',
     title: '숲의 소리',
-    description: '숲과 자연의 소리를 들으며 편안하게 쉬어보세요.',
+    description: '숲과 바람 소리 속에서 쉬어보세요.',
     category: 'forest',
-    youtubeId: 'QBtqwXNrCTU',
+    youtubeId: 'xNN7iTA57jM',
   },
   {
     id: 'sleep',

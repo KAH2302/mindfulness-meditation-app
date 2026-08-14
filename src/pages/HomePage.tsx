@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { NatureBackground } from '../components/NatureBackground'
 import { getThemeById, meditationThemes } from '../data/meditations'
 import { formatClock, getTimeOfDay } from '../data/timeOfDay'
+import { ko } from '../i18n/ko'
 
 export function HomePage() {
   const [now, setNow] = useState(() => new Date())
@@ -24,10 +25,10 @@ export function HomePage() {
         <header className="animate-fade-up flex items-start justify-between gap-4">
           <div>
             <p className="text-xs font-bold tracking-[0.2em] text-[var(--color-ivory-muted)]">
-              마음 챙김
+              {ko.brandMindfulness}
             </p>
             <h1 className="mt-1 text-2xl font-extrabold tracking-tight text-[var(--color-ivory)] sm:text-3xl">
-              오늘의 명상
+              {ko.todayMeditation}
             </h1>
           </div>
           <time className="pt-1 text-sm font-bold tracking-widest text-[var(--color-ivory)]">
@@ -50,16 +51,16 @@ export function HomePage() {
         <div className="animate-fade-up-delay mt-8 rounded-2xl border border-white/25 bg-black/45 p-4 shadow-lg backdrop-blur-md">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
-              <p className="text-xs font-bold text-[var(--color-ivory-muted)]">추천</p>
+              <p className="text-xs font-bold text-[var(--color-ivory-muted)]">{ko.recommend}</p>
               <p className="mt-1 text-sm font-bold text-[var(--color-ivory)]">
-                {recommendation.title} · {timeOfDay.recommendedDuration}분
+                {recommendation.title} � {ko.minutes(timeOfDay.recommendedDuration)}
               </p>
             </div>
             <Link
               to={startPath}
               className="inline-flex items-center justify-center rounded-full border border-white/35 bg-white/20 px-5 py-2.5 text-sm font-bold tracking-wide text-[var(--color-ivory)] backdrop-blur-sm transition hover:bg-white/30 active:scale-[0.98]"
             >
-              {timeOfDay.recommendedDuration}분 시작하기
+              {ko.startMinutes(timeOfDay.recommendedDuration)}
             </Link>
           </div>
         </div>
@@ -68,14 +69,14 @@ export function HomePage() {
           <div className="mb-4 flex items-end justify-between gap-3">
             <div>
               <h3 className="text-lg font-extrabold tracking-tight text-[var(--color-ivory)]">
-                테마 선택
+                {ko.themeSelect}
               </h3>
               <p className="mt-1 text-xs font-light text-[var(--color-ivory-muted)]">
-                원하는 명상 테마를 골라 바로 시작해 보세요
+                {ko.themeHint}
               </p>
             </div>
             <span className="shrink-0 rounded-full bg-white/15 px-2.5 py-1 text-[11px] font-bold text-[var(--color-ivory)]">
-              {meditationThemes.length}개
+              {ko.count(meditationThemes.length)}
             </span>
           </div>
 
@@ -114,7 +115,7 @@ export function HomePage() {
                     className="shrink-0 rounded-full px-2.5 py-1 text-xs font-extrabold text-[#101812]"
                     style={{ backgroundColor: theme.accent }}
                   >
-                    {theme.duration}분
+                    {ko.minutes(theme.duration)}
                   </span>
                 </div>
               </Link>

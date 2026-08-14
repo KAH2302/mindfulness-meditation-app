@@ -41,21 +41,23 @@ export interface MeditationTheme {
   accent: string
   accentSoft: string
   defaultMusicId: string
-}
-
-export interface MeditationContent {
-  id: string
-  title: string
-  description: string
-  category: MeditationType
-  duration: number
-  youtubeId: string
+  cues: string[]
 }
 
 export interface MusicTrack {
   id: string
   title: string
   description: string
-  category: 'meditation' | 'rain' | 'waves' | 'forest' | 'sleep'
-  youtubeId: string
+  category: 'none' | 'meditation' | 'rain' | 'waves' | 'forest' | 'sleep'
+  youtubeId?: string
+}
+
+export interface ActiveSessionState {
+  type: MeditationType
+  musicId: string
+  durationMin: 5 | 10 | 15
+  remainingSec: number
+  endsAt: number | null
+  phase: 'running' | 'paused'
+  savedAt: number
 }

@@ -7,6 +7,7 @@ export const TIME_OF_DAY: Record<TimeOfDayId, TimeOfDayConfig> = {
     greeting: '좋은 새벽입니다.',
     subtitle: '고요한 시작을 함께해요.',
     image: '/images/dawn.jpg',
+    video: '/videos/dawn.mp4',
     recommendedType: 'breath',
     recommendedDuration: 10,
   },
@@ -16,6 +17,7 @@ export const TIME_OF_DAY: Record<TimeOfDayId, TimeOfDayConfig> = {
     greeting: '좋은 아침입니다.',
     subtitle: '하루를 차분히 열어보세요.',
     image: '/images/morning.jpg',
+    video: '/videos/morning.mp4',
     recommendedType: 'breath',
     recommendedDuration: 10,
   },
@@ -25,6 +27,7 @@ export const TIME_OF_DAY: Record<TimeOfDayId, TimeOfDayConfig> = {
     greeting: '좋은 오후입니다.',
     subtitle: '잠시 쉬어가는 시간을 가져보세요.',
     image: '/images/day.jpg',
+    video: '/videos/day.mp4',
     recommendedType: 'break',
     recommendedDuration: 5,
   },
@@ -34,6 +37,7 @@ export const TIME_OF_DAY: Record<TimeOfDayId, TimeOfDayConfig> = {
     greeting: '좋은 저녁입니다.',
     subtitle: '하루의 긴장을 내려놓아 보세요.',
     image: '/images/evening.jpg',
+    video: '/videos/evening.mp4',
     recommendedType: 'stress',
     recommendedDuration: 10,
   },
@@ -43,6 +47,7 @@ export const TIME_OF_DAY: Record<TimeOfDayId, TimeOfDayConfig> = {
     greeting: '좋은 밤이에요.',
     subtitle: '오늘 하루도 수고했어요.',
     image: '/images/night.jpg',
+    video: '/videos/night.mp4',
     recommendedType: 'sleep',
     recommendedDuration: 10,
   },
@@ -52,17 +57,16 @@ export const TIME_OF_DAY: Record<TimeOfDayId, TimeOfDayConfig> = {
     greeting: '고요한 밤입니다.',
     subtitle: '몸과 마음을 편안하게 해주세요.',
     image: '/images/night.jpg',
+    video: '/videos/night.mp4',
     recommendedType: 'sleep',
     recommendedDuration: 15,
   },
 }
 
-/** Resolve current local hour to a time-of-day band. */
 export function getTimeOfDay(date: Date = new Date()): TimeOfDayConfig {
   const hour = date.getHours()
 
   if (hour >= 5 && hour < 9) {
-    // 05–08: use dawn for earliest hours, morning for later
     return hour < 7 ? TIME_OF_DAY.dawn : TIME_OF_DAY.morning
   }
   if (hour >= 9 && hour < 17) return TIME_OF_DAY.day

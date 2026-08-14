@@ -9,6 +9,7 @@ export const meditationThemes: MeditationTheme[] = [
     accent: '#5fd4b3',
     accentSoft: 'rgba(95, 212, 179, 0.35)',
     defaultMusicId: 'meditation-music',
+    cues: ['천천히 들이쉬세요', '천천히 내쉬세요', '호흡에 머물러 보세요'],
   },
   {
     id: 'stress',
@@ -18,6 +19,7 @@ export const meditationThemes: MeditationTheme[] = [
     accent: '#f0b47a',
     accentSoft: 'rgba(240, 180, 122, 0.35)',
     defaultMusicId: 'rain',
+    cues: ['어깨의 힘을 빼 보세요', '긴장을 내려놓으세요', '지금 이 순간에 쉬어가세요'],
   },
   {
     id: 'break',
@@ -27,6 +29,7 @@ export const meditationThemes: MeditationTheme[] = [
     accent: '#b7e07a',
     accentSoft: 'rgba(183, 224, 122, 0.35)',
     defaultMusicId: 'forest',
+    cues: ['잠시 멈추어 보세요', '깊게 숨을 쉬어보세요', '짧게 쉬어가도 충분합니다'],
   },
   {
     id: 'mindfulness',
@@ -36,6 +39,7 @@ export const meditationThemes: MeditationTheme[] = [
     accent: '#f5f0e4',
     accentSoft: 'rgba(245, 240, 228, 0.28)',
     defaultMusicId: 'meditation-music',
+    cues: ['생각을 알아차리고 놓아주세요', '감각에 부드럽게 머무르세요', '있는 그대로 두어 보세요'],
   },
   {
     id: 'nature',
@@ -45,6 +49,7 @@ export const meditationThemes: MeditationTheme[] = [
     accent: '#7ed49a',
     accentSoft: 'rgba(126, 212, 154, 0.35)',
     defaultMusicId: 'waves',
+    cues: ['자연의 리듬을 느껴보세요', '바람처럼 부드럽게 호흡하세요', '몸이 이완되도록 두세요'],
   },
   {
     id: 'sleep',
@@ -54,6 +59,7 @@ export const meditationThemes: MeditationTheme[] = [
     accent: '#9db7ef',
     accentSoft: 'rgba(157, 183, 239, 0.35)',
     defaultMusicId: 'sleep',
+    cues: ['몸이 무거워지도록 두세요', '호흡이 느려지게 하세요', '편안하게 놓아주세요'],
   },
 ]
 
@@ -75,7 +81,6 @@ export function getMeditationLabel(type: MeditationType): string {
   return TYPE_LABELS[type]
 }
 
-/** @deprecated use getThemeById */
 export function getMeditationByType(type: MeditationType): MeditationTheme {
   return getThemeById(type)
 }
