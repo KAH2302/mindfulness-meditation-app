@@ -3,9 +3,9 @@ import type { TimeOfDayConfig, TimeOfDayId } from '../types'
 export const TIME_OF_DAY: Record<TimeOfDayId, TimeOfDayConfig> = {
   dawn: {
     id: 'dawn',
-    label: '새벽',
-    greeting: '좋은 새벽입니다.',
-    subtitle: '고요한 시작을 함께해요.',
+    label: '\uC0C8\uBCBD',
+    greeting: '\uC88B\uC740 \uC0C8\uBCBD\uC785\uB2C8\uB2E4.',
+    subtitle: '\uACE0\uC694\uD55C \uC2DC\uC791\uC744 \uD568\uAED8\uD574\uC694.',
     image: '/images/dawn.jpg',
     video: '/videos/dawn.mp4',
     recommendedType: 'breath',
@@ -13,9 +13,9 @@ export const TIME_OF_DAY: Record<TimeOfDayId, TimeOfDayConfig> = {
   },
   morning: {
     id: 'morning',
-    label: '아침',
-    greeting: '좋은 아침입니다.',
-    subtitle: '하루를 차분히 열어보세요.',
+    label: '\uC544\uCE68',
+    greeting: '\uC88B\uC740 \uC544\uCE68\uC785\uB2C8\uB2E4.',
+    subtitle: '\uD558\uB8E8\uB97C \uCC28\uBD84\uD788 \uC5F4\uC5B4\uBCF4\uC138\uC694.',
     image: '/images/morning.jpg',
     video: '/videos/morning.mp4',
     recommendedType: 'breath',
@@ -23,9 +23,9 @@ export const TIME_OF_DAY: Record<TimeOfDayId, TimeOfDayConfig> = {
   },
   day: {
     id: 'day',
-    label: '낮',
-    greeting: '좋은 오후입니다.',
-    subtitle: '잠시 쉬어가는 시간을 가져보세요.',
+    label: '\uB0AE',
+    greeting: '\uC88B\uC740 \uC624\uD6C4\uC785\uB2C8\uB2E4.',
+    subtitle: '\uC7A0\uC2DC \uC26C\uC5B4\uAC00\uB294 \uC2DC\uAC04\uC744 \uAC00\uC838\uBCF4\uC138\uC694.',
     image: '/images/day.jpg',
     video: '/videos/day.mp4',
     recommendedType: 'break',
@@ -33,9 +33,9 @@ export const TIME_OF_DAY: Record<TimeOfDayId, TimeOfDayConfig> = {
   },
   evening: {
     id: 'evening',
-    label: '저녁',
-    greeting: '좋은 저녁입니다.',
-    subtitle: '하루의 긴장을 내려놓아 보세요.',
+    label: '\uC800\uB141',
+    greeting: '\uC88B\uC740 \uC800\uB141\uC785\uB2C8\uB2E4.',
+    subtitle: '\uD558\uB8E8\uC758 \uAE34\uC7A5\uC744 \uB0B4\uB824\uB193\uC544 \uBCF4\uC138\uC694.',
     image: '/images/evening.jpg',
     video: '/videos/evening.mp4',
     recommendedType: 'stress',
@@ -43,9 +43,9 @@ export const TIME_OF_DAY: Record<TimeOfDayId, TimeOfDayConfig> = {
   },
   night: {
     id: 'night',
-    label: '밤',
-    greeting: '좋은 밤이에요.',
-    subtitle: '오늘 하루도 수고했어요.',
+    label: '\uBC24',
+    greeting: '\uC88B\uC740 \uBC24\uC774\uC5D0\uC694.',
+    subtitle: '\uC624\uB298 \uD558\uB8E8\uB3C4 \uC218\uACE0\uD588\uC5B4\uC694.',
     image: '/images/night.jpg',
     video: '/videos/night.mp4',
     recommendedType: 'sleep',
@@ -53,22 +53,19 @@ export const TIME_OF_DAY: Record<TimeOfDayId, TimeOfDayConfig> = {
   },
   deepNight: {
     id: 'deepNight',
-    label: '깊은 밤',
-    greeting: '고요한 밤입니다.',
-    subtitle: '몸과 마음을 편안하게 해주세요.',
+    label: '\uAE4A\uC740 \uBC24',
+    greeting: '\uACE0\uC694\uD55C \uBC24\uC785\uB2C8\uB2E4.',
+    subtitle: '\uBAB8\uACFC \uB9C8\uC74C\uC744 \uD3B8\uC548\uD558\uAC8C \uD574\uC8FC\uC138\uC694.',
     image: '/images/night.jpg',
     video: '/videos/night.mp4',
     recommendedType: 'sleep',
     recommendedDuration: 15,
-  },
+  }
 }
 
 export function getTimeOfDay(date: Date = new Date()): TimeOfDayConfig {
   const hour = date.getHours()
-
-  if (hour >= 5 && hour < 9) {
-    return hour < 7 ? TIME_OF_DAY.dawn : TIME_OF_DAY.morning
-  }
+  if (hour >= 5 && hour < 9) return hour < 7 ? TIME_OF_DAY.dawn : TIME_OF_DAY.morning
   if (hour >= 9 && hour < 17) return TIME_OF_DAY.day
   if (hour >= 17 && hour < 20) return TIME_OF_DAY.evening
   if (hour >= 20 && hour < 24) return TIME_OF_DAY.night

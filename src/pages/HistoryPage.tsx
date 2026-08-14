@@ -108,7 +108,7 @@ export function HistoryPage() {
       <div className="relative z-10 mx-auto max-w-lg px-6 pb-10 pt-6">
         <h2 className="animate-fade-up text-3xl font-extrabold">{ko.myHistory}</h2>
         <p className="animate-fade-up mt-2 text-sm text-[var(--color-ivory-muted)]">
-          {ko.todayDot} ? {formatKoreanDate(today)}
+          {ko.todayDot}: {formatKoreanDate(today)}
         </p>
         <p className="mt-1 text-xs text-[var(--color-ivory-muted)]/80">
           {todayMinutes > 0
@@ -132,7 +132,7 @@ export function HistoryPage() {
               className="px-2 py-1 text-[var(--color-ivory-muted)] hover:text-[var(--color-ivory)]"
               aria-label={ko.prevMonth}
             >
-              ?
+              {ko.prev}
             </button>
             <p className="text-xl font-bold">
               {ko.yearMonth(cursor.year, cursor.month + 1)}
@@ -143,7 +143,7 @@ export function HistoryPage() {
               className="px-2 py-1 text-[var(--color-ivory-muted)] hover:text-[var(--color-ivory)]"
               aria-label={ko.nextMonth}
             >
-              ?
+              {ko.next}
             </button>
           </div>
 
@@ -205,7 +205,7 @@ export function HistoryPage() {
                   >
                     <span>{getMeditationLabel(s.type)}</span>
                     <span className="text-[var(--color-ivory-muted)]">
-                      {ko.minutes(s.duration)} ?{' '}
+                      {ko.minutes(s.duration)} {ko.dot}{' '}
                       {new Date(s.completedAt).toLocaleTimeString('ko-KR', {
                         hour: '2-digit',
                         minute: '2-digit',
@@ -243,7 +243,7 @@ export function HistoryPage() {
                     : 'border border-white/20 text-[var(--color-ivory-muted)]',
                 ].join(' ')}
               >
-                {done ? '?' : '?'}
+                {done ? ko.filled : ko.empty}
               </span>
             ))}
           </div>

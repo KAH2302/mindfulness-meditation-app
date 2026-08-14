@@ -37,9 +37,6 @@ export function HomePage() {
         </header>
 
         <div className="mt-8 space-y-3">
-          <p className="animate-soft-pulse text-xs font-bold tracking-[0.28em] text-[var(--color-ivory-muted)]">
-            {timeOfDay.label}
-          </p>
           <h2 className="animate-fade-up text-3xl font-extrabold leading-tight text-[var(--color-ivory)] sm:text-4xl">
             {timeOfDay.greeting}
           </h2>
@@ -53,7 +50,7 @@ export function HomePage() {
             <div>
               <p className="text-xs font-bold text-[var(--color-ivory-muted)]">{ko.recommend}</p>
               <p className="mt-1 text-sm font-bold text-[var(--color-ivory)]">
-                {recommendation.title} · {ko.minutes(timeOfDay.recommendedDuration)}
+                {recommendation.title} {ko.dot} {ko.minutes(timeOfDay.recommendedDuration)}
               </p>
             </div>
             <Link

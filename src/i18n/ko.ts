@@ -1,5 +1,14 @@
 /** Korean UI copy — keep this file ASCII-safe with \\u escapes only. */
 export const ko = {
+  navHome: '\uD648',
+  navMeditation: '\uBA85\uC0C1',
+  navHistory: '\uAE30\uB85D',
+  navMusic: '\uC74C\uC545',
+  dot: '\u00B7',
+  prev: '\u2039',
+  next: '\u203A',
+  filled: '\u25CF',
+  empty: '\u25CB',
   brandMindfulness: '\uB9C8\uC74C \uCC59\uAE40',
   todayMeditation: '\uC624\uB298\uC758 \uBA85\uC0C1',
   recommend: '\uCD94\uCC9C',
@@ -15,7 +24,7 @@ export const ko = {
   minutesComplete: (n: number) => `${n}\uBD84 \uBA85\uC0C1 \uC644\uB8CC`,
   streakLabel: '\uC5F0\uC18D \uAE30\uB85D',
   days: (n: number) => `${n}\uC77C`,
-  challenge7: '7\uC77C \uCC30\uB9B0\uC9C0',
+  challenge7: '7\uC77C \uCC4C\uB9B0\uC9C0',
   viewHistory: '\uAE30\uB85D \uBCF4\uAE30',
   toHome: '\uD648\uC73C\uB85C',
 
@@ -45,9 +54,9 @@ export const ko = {
   totalTime: '\uCD1D \uBA85\uC0C1 \uC2DC\uAC04',
   times: (n: number) => `${n}\uD68C`,
   currentStreak: '\uD604\uC7AC \uC5F0\uC18D \uAE30\uB85D',
-  challengeTitle: '7\uC77C \uBA85\uC0C1 \uCC30\uB9B0\uC9C0',
+  challengeTitle: '7\uC77C \uBA85\uC0C1 \uCC4C\uB9B0\uC9C0',
   challengeHint: '\uB9E4\uC77C 5\uBD84 \uC774\uC0C1 \uBA85\uC0C1\uD574\uBCF4\uC138\uC694.',
-  challengeDone: '7\uC77C \uBA85\uC0C1 \uCC30\uB9B0\uC9C0 \uC644\uB8CC!',
+  challengeDone: '7\uC77C \uBA85\uC0C1 \uCC4C\uB9B0\uC9C0 \uC644\uB8CC!',
   challengeProgress: (n: number) => `${n} / 7\uC77C`,
   weekdays: ['\uC77C', '\uC6D4', '\uD654', '\uC218', '\uBAA9', '\uAE08', '\uD1A0'] as const,
 
@@ -58,5 +67,5 @@ export const ko = {
 
   notifyTitle: '\uBA85\uC0C1 \uC644\uB8CC',
   notifyBody: (mins: number, streak: number, challenge: number) =>
-    `${mins}\uBD84 \uC644\uB8CC \u00B7 \uC5F0\uC18D ${streak}\uC77C \u00B7 \uCC30\uB9B0\uC9C0 ${challenge}/7`,
+    `${mins}\uBD84 \uC644\uB8CC \u00B7 \uC5F0\uC18D ${streak}\uC77C \u00B7 \uCC4C\uB9B0\uC9C0 ${challenge}/7`,
 }

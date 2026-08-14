@@ -1,10 +1,11 @@
 import { NavLink } from 'react-router-dom'
+import { ko } from '../i18n/ko'
 
 const links = [
-  { to: '/', label: '홈', end: true },
-  { to: '/meditation', label: '명상', end: false },
-  { to: '/history', label: '기록', end: false },
-  { to: '/music', label: '음악', end: false },
+  { to: '/', label: ko.navHome, end: true },
+  { to: '/meditation', label: ko.navMeditation, end: false },
+  { to: '/history', label: ko.navHistory, end: false },
+  { to: '/music', label: ko.navMusic, end: false },
 ]
 
 export function TopNav() {

@@ -285,7 +285,7 @@ export function MeditationPage() {
             {ko.meditationComplete}
           </h2>
           <p className="animate-fade-up-delay-2 mt-4 text-[var(--color-ivory-muted)]">
-            {theme.title} ? {ko.goodTimeToday}
+            {theme.title} {ko.dot} {ko.goodTimeToday}
           </p>
           <p className="mt-8 text-lg tracking-wide text-[var(--color-ivory)]">
             {ko.minutesComplete(completedMinutes)}
